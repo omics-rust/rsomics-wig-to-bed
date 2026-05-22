@@ -47,11 +47,11 @@ pub static HELP: HelpSpec = HelpSpec {
     version: env!("CARGO_PKG_VERSION"),
     tagline: "Convert WIG/bedGraph signal to BED intervals above a threshold.",
     origin: None,
-    usage_lines: &["<signal.wig> [-t 1.0] [-o peaks.bed]"],
+    usage_lines: &["<signal.wig> [--threshold 1.0] [-o peaks.bed]"],
     sections: &[Section {
         title: "OPTIONS",
         flags: &[FlagSpec {
-            short: Some('t'),
+            short: None,
             long: "threshold",
             aliases: &[],
             value: Some("<float>"),
@@ -64,7 +64,7 @@ pub static HELP: HelpSpec = HelpSpec {
     }],
     examples: &[Example {
         description: "Extract regions with signal > 5",
-        command: "rsomics-wig-to-bed signal.wig -t 5.0 -o peaks.bed",
+        command: "rsomics-wig-to-bed signal.wig --threshold 5.0 -o peaks.bed",
     }],
     json_result_schema_doc: None,
 };
